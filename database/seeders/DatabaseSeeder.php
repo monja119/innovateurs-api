@@ -15,15 +15,15 @@ class DatabaseSeeder extends Seeder
     {
 //         \App\Models\User::factory(10)->create();
 
-        // create with password increment
-//         $base_password = 'password';
-//            for ($i = 0; $i < 10; $i++) {
-//                $user = new \App\Models\User();
-//                $user->name = 'user' . $i;
-//                $user->email = 'user' . $i . '@example.com';
-//                $user->password = Hash::make($base_password . $i);
-//                $user->save();
-//            }
+//         create with password increment
+         $base_password = 'password';
+            for ($i = 0; $i < 10; $i++) {
+                $user = new \App\Models\User();
+                $user->name = 'user' . $i;
+                $user->email = 'user' . $i . '@example.com';
+                $user->password = Hash::make($base_password . $i);
+                $user->save();
+            }
 
         // $admin
         $user = new \App\Models\User();
