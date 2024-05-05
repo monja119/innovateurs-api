@@ -67,9 +67,25 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+        info('at update', $user);
         $user->update($request->all());
         return response()->json($user, 200);
     }
+
+    public function activate(Request $request, $id)
+    {
+        $user = User::find($id);
+        User::where('id', $id)->update(['status' => 1]);
+        return response()->json($user, 200);
+    }
+
+    public function deactivate(Request $request, $id)
+    {
+        $user = User::find($id);
+        User::where('id', $id)->update(['status' => 0]);
+        return response()->json($user, 200);
+    }
+
 
     public function delete($id)
     {
